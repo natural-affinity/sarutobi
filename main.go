@@ -25,8 +25,8 @@ const Usage = `
   Options:
     -h, --help        display help information
     -v, --version     display version information
-    -t, --tag t       limit relevant quotes by tag
     -a, --author a    limit relevant quotes by author
+    -t, --tag t       limit relevant quotes by tag
 `
 
 func main() {
@@ -46,5 +46,5 @@ func main() {
 		log.Fatalf("invalid file: %s", err.Error())
 	}
 
-	fmt.Printf("%s_%s", tag, author, research)
+	fmt.Printf("%s_%s_%s", tag, author, research)
 }
