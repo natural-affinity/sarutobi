@@ -1,0 +1,143 @@
+%YAML 1.1
+---
+tags:
+  &hea health: Reminders to take care of yourself
+  &cpd courage: Seize opportunities that come your way (Carpe Diem)
+  &pro proverb: Practical idioms
+  &emo emotion: When you're upset or excited
+  &dec decisions: When you're torn on what to do
+  &eng engineering: Programming advice
+  &ent entrepreneur: Perservere, work hard, narrow your focus
+quotes:
+  - author: Benjamin Franklin
+    message: Never leave that till tomorrow which you can do today! 
+    tags: { *pro, *ent, *dec }
+
+  - author: Toyo Miyakojima
+    message: Better to be the head of a chicken than the tail of a bull
+    original: けいこうぎゅうご
+    tags: { *pro, *ent, *dec }
+
+  - author: Neale Donald Walsch
+    message: Life begins at the Edge of your Comfort Zone
+    tags: { *cpd }
+
+  - author: Mark Cuban
+    message: It's not in the dreaming. It's in the doing.
+    tags: { *ent }
+
+  - author: 37 Signals
+    message: Decisions are temporary. So just make the call and move on.
+    tags: { *dec }
+
+  - author: Bill Gates
+    message: Don't let yourself be lulled into inaction.
+    tags: { *dec }
+
+  - author: Mark Cuban
+    message: Either you make the commitment to get results or you don't.
+    tags: { *dec, *ent }
+
+  - author: Henry Ford
+    message: Don't find fault, find a remedy.
+    tags: { *emo }
+
+  - author: Michael Phelps
+    message: You can't put a limit on anything.  The more you dream, the further you get.
+    tags: { *cpd, *ent }
+
+  - author: Milton Berle
+    message: If opportunity doesn't knock, build a door.
+    tags: { *cpd }
+
+  - author: Marcus Aurelius
+    message: If its endurable, then endure it. Stop complaining.
+    tags: { *emo }
+
+  - author: Napoleon Bonaparte
+    message: Imagination rules the world.
+    tags: { *pro }
+
+  - author: Mark van de Walle
+    message: The reward for work is more work.
+    tags: { *pro, *ent }
+
+  - author: Sandi Metz
+    message: Refactor not because you know the abstraction, but because you want to find it.
+    tags: { *eng }
+
+  - author: Sandi Metz
+    message: Prefer duplication over the wrong abstraction (SOLID >> DRY)
+    tags: { *eng }
+
+  - author: John Carmack
+    message: It is not uncommon for the cost of an abstraction to outweigh the benefit it delivers. Kill one today
+    tags: { *eng }
+
+  - author: TJ Holowaychuck
+    message: Flat code is healthy code
+    tags: { *eng }
+
+  - author: Steve Jobs
+    message: Innovation is not about saying yes to everything. It's about saying NO to all but the most crucial features.
+    tags: { *dec }
+
+  - author: Guy Kawasaki
+    message: The first step to worldwide domination is to ship a prototype.
+    tags: { *dec, *emo, *pro }
+
+  - author: Seneca
+    message: It is the power of the mind to be unconquerable.
+    tags: { *pro }
+
+  - author: Anonymous
+    message: When you feel like quitting, remember why you started.
+    tags: { *pro, *emo, *dec }
+
+  - author: Toni Sorenson
+    message: Change doesn't come in nickels and dimes. It comes in dedication and sweat.
+    tags: { *ent, *emo }
+
+  - author: William Faulkner
+    message: You cannot swim for new horizons until you have courage to lose sight of the shore.
+    tags: { *cpd }
+
+  - author: Kevin Roberts
+    message: Emotion leads to action.
+    tags: { *emo }
+
+  - author: Paul Graham
+    message: For the most ambitious young people, the corporate ladder is obsolete.
+    tags: { *ent }
+
+  - author: Robert Herjavec
+    message: A goal without a timeline is just a dream.
+    tags: { *pro, *ent }
+
+  - author: Daymond John
+    message: An idea is not good enough. You have to find out how to execute that idea.
+    tags: { *pro, *ent }
+
+  - author: Peter Kohlmann
+    message: It's easier to ask for forgiveness than for permission.
+    tags: { *dec }
+
+  - author: Bob Iger
+    message: The riskiest thing we can do is just maintain the status quo.
+    tags: { *cpd }
+
+  - author: Scott McCloud
+    message: Learn from everyone. Follow no one. Watch for patterns. Work like hell.
+    tags: { *ent }
+
+  - author: Hugh Molotsi
+    message: Find cheap ways to find new ideas. Constantly do that. If you're not experimenting, you'll atrophy.
+    tags: { *ent, *cpd }
+
+  - author: Lauren Gilchrist
+    message: Whatever is keeping you up at night, you can probably figure out by putting something in front of users
+    tags: { *dec }
+
+  - author: Laura Klein
+    message: Nothing is more impactful than actually seeing what you are putting your customers through
+    tags: { *dec }
