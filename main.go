@@ -13,12 +13,13 @@ const Version = "0.0.1"
 
 // Usage message (docopt interface)
 const Usage = `
-  Sarutobi
+  Sarutobi (Purofessā)
     Inspirational quotes
 
   Usage:
     sarutobi
-    sarutobi [--author a | --tag t]
+    sarutobi --tag t
+    sarutobi --author a
     sarutobi --help
     sarutobi --version
 
