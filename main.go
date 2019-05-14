@@ -17,17 +17,13 @@ const Usage = `
     Inspirational quotes
 
   Usage:
-    sarutobi
-    sarutobi --tag t
-    sarutobi --author a
+    sarutobi [<tag>...]
     sarutobi --help
     sarutobi --version
 
   Options:
     -h, --help        display help information
     -v, --version     display version information
-    -t, --tag t       limit relevant quotes by tag
-    -a, --author a    limit relevant quotes by author
 `
 
 func main() {
@@ -40,8 +36,6 @@ func main() {
 	}
 
 	// extract options and args
-	tag, _ := args.String("--tag")
-	author, _ := args.String("--author")
-
-	fmt.Printf("%s_%s", tag, author)
+	tag := args["<tag>"].([]string)
+	fmt.Print(tag)
 }
