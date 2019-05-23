@@ -12,60 +12,47 @@ const Shintai = "wisdom/shintai.yaml"
 
 // Sensei with knowledge
 type Sensei struct {
-	knowledge *wisdom.Library
+	Knowledge *wisdom.Library
 }
 
-// Subject of relevance
-type Subject func(q wisdom.Quote) bool
-
-// Professor provides wisdom
+// Professor advises
 type Professor interface {
-	Recall(shintai string) error
-	Advise(relevant Subject) ([]wisdom.Quote, error)
-	Summarize(wisdom []wisdom.Quote) *wisdom.Quote
+	Advise(relevant func(q wisdom.Quote) bool) wisdom.Quote
 }
 
-// Recall shintai
-func (s *Sensei) Recall(shintai string) error {
-	knowledge, err := wisdom.Asset(shintai)
+// Recall universal truths
+func Recall(fp string) (*wisdom.Library, error) {
+	if fp == "" {
+		fp = Shintai
+	}
+
+	asset, err := wisdom.Asset(fp)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	lib := &wisdom.Library{}
-	if err := yaml.Unmarshal(knowledge, lib); err != nil {
-		return err
+	if err := yaml.Unmarshal(asset, lib); err != nil {
+		return nil, err
 	}
 
-	s.knowledge = lib
-	return nil
+	return lib, nil
 }
 
 // Advise with relevant wisdom
-func (s *Sensei) Advise(relevant Subject) ([]wisdom.Quote, error) {
-	if s.knowledge == nil {
-		if err := s.Recall(Shintai); err != nil {
-			return nil, err
+func (s *Sensei) Advise(relevant func(q wisdom.Quote) bool) wisdom.Quote {
+	var r []wisdom.Quote
+	for _, q := range s.Knowledge.Quotes {
+		if relevant(q) {
+			r = append(r, q)
 		}
 	}
 
-	var related []wisdom.Quote
-	for _, wisdom := range s.knowledge.Quotes {
-		if relevant(wisdom) {
-			related = append(related, wisdom)
-		}
-	}
-
-	return related, nil
-}
-
-// Summarize wisdom in a single quote
-func (s *Sensei) Summarize(wisdom []wisdom.Quote) *wisdom.Quote {
-	max := int64(len(wisdom))
+	max := int64(len(r))
 	if max == 0 {
-		return nil
+		return s.Knowledge.Default
 	}
 
-	rnd := time.Now().Unix() % max
-	return &wisdom[rnd]
+	rand := time.Now().Unix() % max
+	return r[rand]
 }

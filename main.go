@@ -42,13 +42,16 @@ func main() {
 		return q.Tagged(args["<tag>"].([]string))
 	}
 
-	sensei := &hiruzen.Sensei{}
-	knowledge, err := sensei.Advise(subject)
-	if err != nil {
-		log.Fatalf("invalid yaml %s", err.Error())
-	}
+	shintai := func() *wisdom.Library {
+		lib, err := hiruzen.Recall("")
+		if err != nil {
+			log.Fatalf("invalid yaml %s", err.Error())
+		}
 
-	if wisdom := sensei.Summarize(knowledge); wisdom != nil {
-		wisdom.Print()
-	}
+		return lib
+	}()
+
+	sensei := &hiruzen.Sensei{Knowledge: shintai}
+	quote := sensei.Advise(subject)
+	quote.Print()
 }

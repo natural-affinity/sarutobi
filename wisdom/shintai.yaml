@@ -145,3 +145,7 @@ quotes:
   - author: Robert Heinlein
     message: When one teaches, two learn
     tags: { *proverb }
+default:
+  author: Euripides
+  message: Silence is true wisdom's best reply
+  tags: { *proverb }

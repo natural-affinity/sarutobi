@@ -2,7 +2,7 @@ include github.com/natural-affinity/makefiles/golang.bin.mk
 
 PACKR := $(value GOPATH)\bin\go-bindata.exe
 DBDIR := wisdom
-DB := $(DBDIR)\$(DBDIR)_generated.go
+DB := $(DBDIR)\shintai.go
 
 # build when changed including embedding static content
 $(BIN): $(SRC) $(PACKR)
