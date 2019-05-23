@@ -6,7 +6,7 @@ DB := $(DBDIR)\shintai.go
 
 # build when changed including embedding static content
 $(BIN): $(SRC) $(PACKR)
-	go-bindata -o $(DB) -pkg $(DBDIR) $(DBDIR)
+	go-bindata -ignore=.go -o $(DB) -pkg $(DBDIR) $(DBDIR)
 	go build -o $(BIN)
 
 # fetch static embed tool
