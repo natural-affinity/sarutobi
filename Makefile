@@ -1,4 +1,5 @@
 include github.com/natural-affinity/makefiles/golang.bin.mk
+
 PACKR := $(value GOPATH)\bin\go-bindata.exe
 DBDIR := wisdom
 DB := $(DBDIR)\$(DBDIR)_generated.go
