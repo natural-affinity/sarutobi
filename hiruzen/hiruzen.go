@@ -10,9 +10,6 @@ import (
 // Shintai of hiruzen
 const Shintai = "wisdom/shintai.yaml"
 
-// DefaultQuote d
-var DefaultQuote = &wisdom.Quote{Message: "Test", Author: "None", Tags: nil}
-
 // Sensei with knowledge
 type Sensei struct {
 	knowledge *wisdom.Library
@@ -66,7 +63,7 @@ func (s *Sensei) Advise(relevant Subject) ([]wisdom.Quote, error) {
 func (s *Sensei) Summarize(wisdom []wisdom.Quote) *wisdom.Quote {
 	max := int64(len(wisdom))
 	if max == 0 {
-		return DefaultQuote
+		return nil
 	}
 
 	rnd := time.Now().Unix() % max
