@@ -1,9 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
+
+	"github.com/natural-affinity/sarutobi/hiruzen"
+	"github.com/natural-affinity/sarutobi/wisdom"
 
 	docopt "github.com/docopt/docopt-go"
 )
@@ -36,6 +38,18 @@ func main() {
 	}
 
 	// extract options and args
-	tag := args["<tag>"].([]string)
-	fmt.Print(tag)
+	subject := func(q wisdom.Quote) bool {
+		return q.Tagged(args["<tag>"].([]string))
+	}
+
+	sensei := &hiruzen.Sensei{}
+	knowledge, err := sensei.Advise(subject)
+	if err != nil {
+		log.Fatalf("invalid yaml %s", err.Error())
+	}
+
+	wisdom := sensei.Summarize(knowledge)
+	if wisdom != nil {
+		wisdom.Print()
+	}
 }
