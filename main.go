@@ -48,8 +48,7 @@ func main() {
 		log.Fatalf("invalid yaml %s", err.Error())
 	}
 
-	wisdom := sensei.Summarize(knowledge)
-	if wisdom != nil {
+	if wisdom := sensei.Summarize(knowledge); wisdom != nil {
 		wisdom.Print()
 	}
 }
