@@ -19,7 +19,7 @@ type Quote struct {
 // Wisdom to share
 type Wisdom interface {
 	Print()
-	Tagged(tags []string) bool
+	Tagged(tags ...string) bool
 }
 
 // Print wisdom
@@ -28,7 +28,7 @@ func (q *Quote) Print() {
 }
 
 // Tagged with
-func (q *Quote) Tagged(tags []string) bool {
+func (q *Quote) Tagged(tags ...string) bool {
 	for _, t := range tags {
 		if _, ok := q.Tags[t]; !ok {
 			return false

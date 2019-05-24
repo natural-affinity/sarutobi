@@ -39,7 +39,7 @@ func main() {
 
 	// extract options and args
 	subject := func(q wisdom.Quote) bool {
-		return q.Tagged(args["<tag>"].([]string))
+		return q.Tagged(args["<tag>"].([]string)...)
 	}
 
 	shintai := func() *wisdom.Library {
@@ -52,6 +52,7 @@ func main() {
 	}()
 
 	sensei := &hiruzen.Sensei{Knowledge: shintai}
-	quote := sensei.Advise(subject)
-	quote.Print()
+	quotes := sensei.Advise(subject)
+	wisdom := sensei.Inspire(quotes)
+	wisdom.Print()
 }

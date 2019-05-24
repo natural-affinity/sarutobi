@@ -17,7 +17,8 @@ type Sensei struct {
 
 // Professor advises
 type Professor interface {
-	Advise(relevant func(q wisdom.Quote) bool) wisdom.Quote
+	Advise(relevant func(q wisdom.Quote) bool) []wisdom.Quote
+	Inspire(quotes []wisdom.Quote) *wisdom.Quote
 }
 
 // Recall universal truths
@@ -39,8 +40,8 @@ func Recall(fp string) (*wisdom.Library, error) {
 	return lib, nil
 }
 
-// Advise with relevant wisdom
-func (s *Sensei) Advise(relevant func(q wisdom.Quote) bool) wisdom.Quote {
+// Advise on topics
+func (s *Sensei) Advise(relevant func(q wisdom.Quote) bool) []wisdom.Quote {
 	var r []wisdom.Quote
 	for _, q := range s.Knowledge.Quotes {
 		if relevant(q) {
@@ -48,11 +49,17 @@ func (s *Sensei) Advise(relevant func(q wisdom.Quote) bool) wisdom.Quote {
 		}
 	}
 
-	max := int64(len(r))
+	return r
+
+}
+
+// Inspire with wisdom
+func (s *Sensei) Inspire(quotes []wisdom.Quote) *wisdom.Quote {
+	max := int64(len(quotes))
 	if max == 0 {
-		return s.Knowledge.Default
+		return &s.Knowledge.Default
 	}
 
-	rand := time.Now().Unix() % max
-	return r[rand]
+	r := time.Now().Unix() % max
+	return &quotes[r]
 }
