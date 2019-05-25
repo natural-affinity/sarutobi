@@ -7,9 +7,6 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-// Shintai of hiruzen
-const Shintai = "wisdom/shintai.yaml"
-
 // Sensei with knowledge
 type Sensei struct {
 	Knowledge *Library
@@ -23,10 +20,6 @@ type Professor interface {
 
 // Recall universal truths
 func Recall(fp string) (*Library, error) {
-	if fp == "" {
-		fp = Shintai
-	}
-
 	asset, err := wisdom.Asset(fp)
 	if err != nil {
 		return nil, err

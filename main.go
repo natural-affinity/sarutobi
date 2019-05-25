@@ -12,6 +12,9 @@ import (
 // Version identifier
 const Version = "0.0.1"
 
+// Shintai database
+const Shintai = "wisdom/shintai.yaml"
+
 // Usage message (docopt interface)
 const Usage = `
   Sarutobi (Purofessā)
@@ -41,16 +44,12 @@ func main() {
 		return q.Tagged(args["<tag>"].([]string)...)
 	}
 
-	shintai := func() *hiruzen.Library {
-		lib, err := hiruzen.Recall("")
-		if err != nil {
-			log.Fatalf("invalid yaml %s", err.Error())
-		}
+	knowledge, err := hiruzen.Recall(Shintai)
+	if err != nil {
+		log.Fatalf("invalid data: %s", err.Error())
+	}
 
-		return lib
-	}()
-
-	sensei := &hiruzen.Sensei{Knowledge: shintai}
+	sensei := &hiruzen.Sensei{Knowledge: knowledge}
 	quotes := sensei.Advise(subject)
 	sensei.Inspire(quotes).Print()
 }
