@@ -1,4 +1,4 @@
-package wisdom
+package hiruzen
 
 import "fmt"
 
@@ -22,11 +22,6 @@ type Wisdom interface {
 	Tagged(tags ...string) bool
 }
 
-// Print wisdom
-func (q *Quote) Print() {
-	fmt.Printf("\n%s\n \u2014 %s\n\n", q.Message, q.Author)
-}
-
 // Tagged with
 func (q *Quote) Tagged(tags ...string) bool {
 	for _, t := range tags {
@@ -36,4 +31,9 @@ func (q *Quote) Tagged(tags ...string) bool {
 	}
 
 	return true
+}
+
+// Print wisdom
+func (q *Quote) Print() {
+	fmt.Printf("\n%s\n \u2014 %s\n\n", q.Message, q.Author)
 }

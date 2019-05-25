@@ -5,7 +5,6 @@ import (
 	"os"
 
 	"github.com/natural-affinity/sarutobi/hiruzen"
-	"github.com/natural-affinity/sarutobi/wisdom"
 
 	docopt "github.com/docopt/docopt-go"
 )
@@ -38,11 +37,11 @@ func main() {
 	}
 
 	// extract options and args
-	subject := func(q wisdom.Quote) bool {
+	subject := func(q hiruzen.Quote) bool {
 		return q.Tagged(args["<tag>"].([]string)...)
 	}
 
-	shintai := func() *wisdom.Library {
+	shintai := func() *hiruzen.Library {
 		lib, err := hiruzen.Recall("")
 		if err != nil {
 			log.Fatalf("invalid yaml %s", err.Error())
@@ -53,6 +52,5 @@ func main() {
 
 	sensei := &hiruzen.Sensei{Knowledge: shintai}
 	quotes := sensei.Advise(subject)
-	wisdom := sensei.Inspire(quotes)
-	wisdom.Print()
+	sensei.Inspire(quotes).Print()
 }

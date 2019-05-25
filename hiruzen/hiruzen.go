@@ -12,17 +12,17 @@ const Shintai = "wisdom/shintai.yaml"
 
 // Sensei with knowledge
 type Sensei struct {
-	Knowledge *wisdom.Library
+	Knowledge *Library
 }
 
 // Professor advises
 type Professor interface {
-	Advise(relevant func(q wisdom.Quote) bool) []wisdom.Quote
-	Inspire(quotes []wisdom.Quote) *wisdom.Quote
+	Advise(relevant func(q Quote) bool) []Quote
+	Inspire(quotes []Quote) *Quote
 }
 
 // Recall universal truths
-func Recall(fp string) (*wisdom.Library, error) {
+func Recall(fp string) (*Library, error) {
 	if fp == "" {
 		fp = Shintai
 	}
@@ -32,7 +32,7 @@ func Recall(fp string) (*wisdom.Library, error) {
 		return nil, err
 	}
 
-	lib := &wisdom.Library{}
+	lib := &Library{}
 	if err := yaml.Unmarshal(asset, lib); err != nil {
 		return nil, err
 	}
@@ -41,8 +41,8 @@ func Recall(fp string) (*wisdom.Library, error) {
 }
 
 // Advise on topics
-func (s *Sensei) Advise(relevant func(q wisdom.Quote) bool) []wisdom.Quote {
-	var r []wisdom.Quote
+func (s *Sensei) Advise(relevant func(q Quote) bool) []Quote {
+	var r []Quote
 	for _, q := range s.Knowledge.Quotes {
 		if relevant(q) {
 			r = append(r, q)
@@ -50,11 +50,10 @@ func (s *Sensei) Advise(relevant func(q wisdom.Quote) bool) []wisdom.Quote {
 	}
 
 	return r
-
 }
 
 // Inspire with wisdom
-func (s *Sensei) Inspire(quotes []wisdom.Quote) *wisdom.Quote {
+func (s *Sensei) Inspire(quotes []Quote) *Quote {
 	max := int64(len(quotes))
 	if max == 0 {
 		return &s.Knowledge.Default
