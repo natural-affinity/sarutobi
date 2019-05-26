@@ -3,7 +3,6 @@ package hiruzen
 import (
 	"time"
 
-	"github.com/natural-affinity/sarutobi/wisdom"
 	"gopkg.in/yaml.v3"
 )
 
@@ -18,15 +17,10 @@ type Professor interface {
 	Inspire(quotes []Quote) *Quote
 }
 
-// Recall universal truths
-func Recall(fp string) (*Library, error) {
-	asset, err := wisdom.Asset(fp)
-	if err != nil {
-		return nil, err
-	}
-
+// Recall shintai
+func Recall(shintai []byte) (*Library, error) {
 	lib := &Library{}
-	if err := yaml.Unmarshal(asset, lib); err != nil {
+	if err := yaml.Unmarshal(shintai, lib); err != nil {
 		return nil, err
 	}
 

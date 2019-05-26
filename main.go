@@ -12,8 +12,8 @@ import (
 // Version identifier
 const Version = "0.0.1"
 
-// Shintai database
-const Shintai = "wisdom/shintai.yaml"
+// Shintai library
+const Shintai = "data/shintai.yaml"
 
 // Usage message (docopt interface)
 const Usage = `
@@ -44,7 +44,12 @@ func main() {
 		return q.Tagged(args["<tag>"].([]string)...)
 	}
 
-	knowledge, err := hiruzen.Recall(Shintai)
+	shintai, err := Asset(Shintai)
+	if err != nil {
+		log.Fatalf("invalid asset: %s", err.Error())
+	}
+
+	knowledge, err := hiruzen.Recall(shintai)
 	if err != nil {
 		log.Fatalf("invalid data: %s", err.Error())
 	}
