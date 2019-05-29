@@ -2,7 +2,8 @@ include github.com/natural-affinity/makefiles/golang.bin.mk
 
 PACKR := $(value GOPATH)\bin\go-bindata.exe
 DBDIR := data
-DB := $(DBDIR).go
+SRC := $(SRC) $(wildcard $(DBDIR)/*.*)
+DB := bindata.go
 
 # build when changed including embedding static content
 $(BIN): $(SRC) $(PACKR)
@@ -11,7 +12,7 @@ $(BIN): $(SRC) $(PACKR)
 
 # fetch static embed tool
 $(PACKR):
-	go get -u github.com/tj/go-bindata/...
+	go get -u github.com/natural-affinity/go-bindata/...
 
 # remove application and intermediary files
 clean:
