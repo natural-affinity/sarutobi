@@ -1,6 +1,8 @@
 package hiruzen
 
-import "fmt"
+import (
+	"github.com/fatih/color"
+)
 
 // Library of ultimate truth
 type Library struct {
@@ -35,5 +37,6 @@ func (q *Quote) Tagged(tags ...string) bool {
 
 // Print wisdom
 func (q *Quote) Print() {
-	fmt.Printf("\n%s\n \u2014 %s\n\n", q.Message, q.Author)
+	color.HiYellow("\n%s\n", q.Message)
+	color.HiRed(" \u2014 %s\n\n", q.Author)
 }
