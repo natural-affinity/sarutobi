@@ -4,29 +4,32 @@ import (
 	"github.com/fatih/color"
 )
 
+// Tags for filtering
+type Tags map[string]interface{}
+
 // Library of ultimate truth
 type Library struct {
 	Default Quote
 	Quotes  []Quote
-	Tags    map[string]string
+	Tags    Tags
 }
 
 // Quote of wisdom
 type Quote struct {
 	Author  string
 	Message string
-	Tags    map[string]interface{}
+	Tags    Tags
 }
 
 // Wisdom to share
 type Wisdom interface {
-	Print()
+	Printer
 	Tagged(tags ...string) bool
 }
 
-// Shintai tags
-type Shintai interface {
-	PrintTags()
+// Printer of things
+type Printer interface {
+	Print()
 }
 
 // Tagged with
@@ -46,9 +49,9 @@ func (q *Quote) Print() {
 	color.HiRed(" \u2014 %s\n\n", q.Author)
 }
 
-// PrintTags of library
-func (l *Library) PrintTags() {
-	for k := range l.Tags {
+// Print tags
+func (t Tags) Print() {
+	for k := range t {
 		color.HiGreen(k)
 	}
 }

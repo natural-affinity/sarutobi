@@ -58,7 +58,7 @@ func main() {
 
 	switch {
 	case args["--tags"].(bool):
-		knowledge.PrintTags()
+		knowledge.Tags.Print()
 	default:
 		sensei := &hiruzen.Sensei{Knowledge: knowledge}
 		quotes := sensei.Advise(subject)

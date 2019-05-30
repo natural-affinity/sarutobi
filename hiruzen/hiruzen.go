@@ -27,7 +27,7 @@ func Recall(shintai []byte) (*Library, error) {
 	return lib, nil
 }
 
-// Advise on topics
+// Advise with relevant quotes
 func (s *Sensei) Advise(relevant func(q Quote) bool) []Quote {
 	var r []Quote
 	for _, q := range s.Knowledge.Quotes {
