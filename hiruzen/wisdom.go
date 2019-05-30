@@ -24,6 +24,11 @@ type Wisdom interface {
 	Tagged(tags ...string) bool
 }
 
+// Shintai tags
+type Shintai interface {
+	PrintTags()
+}
+
 // Tagged with
 func (q *Quote) Tagged(tags ...string) bool {
 	for _, t := range tags {
@@ -39,4 +44,11 @@ func (q *Quote) Tagged(tags ...string) bool {
 func (q *Quote) Print() {
 	color.HiYellow("\n%s\n", q.Message)
 	color.HiRed(" \u2014 %s\n\n", q.Author)
+}
+
+// PrintTags of library
+func (l *Library) PrintTags() {
+	for k := range l.Tags {
+		color.HiGreen(k)
+	}
 }

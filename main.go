@@ -22,10 +22,12 @@ const Usage = `
 
   Usage:
     sarutobi [<tag>...]
+    sarutobi --tags
     sarutobi --help
     sarutobi --version
 
   Options:
+    -t, --tags        display tags
     -h, --help        display help information
     -v, --version     display version information
 `
@@ -54,7 +56,12 @@ func main() {
 		log.Fatalf("invalid data: %s", err.Error())
 	}
 
-	sensei := &hiruzen.Sensei{Knowledge: knowledge}
-	quotes := sensei.Advise(subject)
-	sensei.Inspire(quotes).Print()
+	switch {
+	case args["--tags"].(bool):
+		knowledge.PrintTags()
+	default:
+		sensei := &hiruzen.Sensei{Knowledge: knowledge}
+		quotes := sensei.Advise(subject)
+		sensei.Inspire(quotes).Print()
+	}
 }
