@@ -16,20 +16,20 @@ type Library struct {
 
 // Quote of wisdom
 type Quote struct {
-	Author  string
 	Message string
+	Author  string
 	Tags    Tags
+}
+
+// Printer of things
+type Printer interface {
+	Print()
 }
 
 // Wisdom to share
 type Wisdom interface {
 	Printer
 	Tagged(tags ...string) bool
-}
-
-// Printer of things
-type Printer interface {
-	Print()
 }
 
 // Tagged with

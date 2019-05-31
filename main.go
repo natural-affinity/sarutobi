@@ -56,6 +56,7 @@ func main() {
 		log.Fatalf("invalid data: %s", err.Error())
 	}
 
+	// display quotes or tags
 	switch {
 	case args["--tags"].(bool):
 		knowledge.Tags.Print()
