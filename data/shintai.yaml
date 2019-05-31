@@ -143,8 +143,17 @@ quotes:
     tags: { *decisions }
 
   - author: Robert Heinlein
-    message: When one teaches, two learn
-    tags: { *proverb }
+    message: When one teaches, two learn.
+    tags: { *engineering }
+
+  - author: Wayne Gretzky
+    message: You miss 100% of the shots you don't take.
+    tags: { *decisions, *courage }
+
+  - author: Wayne Gretzky
+    messgae: A good hockey player skates to where the puck is.  A great hockey player plays where the puck is going to be.
+    tags: { *entrepreneur, *decisions }
+
 default:
   author: Euripides
   message: Silence is true wisdom's best reply
