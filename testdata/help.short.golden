@@ -1,0 +1,13 @@
+  Sarutobi (Purofessā)
+    Inspirational quotes
+
+  Usage:
+    sarutobi [<tag>...]
+    sarutobi --tags
+    sarutobi --help
+    sarutobi --version
+
+  Options:
+    -t, --tags        display tags
+    -h, --help        display help information
+    -v, --version     display version information
