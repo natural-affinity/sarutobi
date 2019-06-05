@@ -154,6 +154,13 @@ quotes:
     messgae: A good hockey player skates to where the puck is.  A great hockey player plays where the puck is going to be.
     tags: { *entrepreneur, *decisions }
 
+  - author: Thomas Fuller
+    message: Health is not valued till sickness comes.
+    tags: { *health }
+
+  - author: Virgil
+    message: The greatest wealth is health
+    tags: { *health }
 default:
   author: Euripides
   message: Silence is true wisdom's best reply
