@@ -161,6 +161,18 @@ quotes:
   - author: Virgil
     message: The greatest wealth is health
     tags: { *health }
+
+  - author: Will Smith
+    message: If you don't fight for what you want, don't cry for what you lost.
+    tags: { *courage }
+
+  - author: Will Smith
+    message: Don't compare yourself to others.  That's when you start to lose confidence in yourself.
+    tags: { *emotion }
+
+  - author: Will Smith
+    message: Smiling is the best way to face every problem, to crush every fear, and hide every pain.
+    tags: { *emotion, *health }
 default:
   author: Euripides
   message: Silence is true wisdom's best reply
