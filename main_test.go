@@ -26,7 +26,8 @@ func TestUsage(t *testing.T) {
 	}
 
 	for _, tc := range cases {
-		gotanda.CompareFile(t, tc, update)
+		r := gotanda.CompareCommand(t, tc, update)
+		r.Assert(t, tc)
 	}
 }
 
