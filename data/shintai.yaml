@@ -5,6 +5,7 @@ tags:
   &courage courage: Seize opportunities that come your way (Carpe Diem)
   &proverb proverb: Practical idioms
   &emotion emotion: When you're upset or excited
+  &teaching teaching: When you need to explain a concept
   &decisions decisions: When you're torn on what to do
   &engineering engineering: Programming advice
   &entrepreneur entrepreneur: Perservere, work hard, narrow your focus
@@ -12,6 +13,10 @@ quotes:
   - author: Benjamin Franklin
     message: Never leave that till tomorrow which you can do today! 
     tags: { *proverb, *entrepreneur, *decisions }
+
+  - author: Benjamin Franklin
+    message: Tell me and I forget, teach me and I may remember, involve me and I learn.
+    tags: { *teaching }
 
   - author: Toyo Miyakojima
     message: Better to be the head of a chicken than the tail of a bull
@@ -25,7 +30,7 @@ quotes:
     message: It's not in the dreaming. It's in the doing.
     tags: { *entrepreneur }
 
-  - author: 37 Signals
+  - author: Jason Fried
     message: Decisions are temporary. So just make the call and move on.
     tags: { *decisions }
 
@@ -70,7 +75,7 @@ quotes:
     tags: { *engineering }
 
   - author: John Carmack
-    message: It is not uncommon for the cost of an abstraction to outweigh the benefit it delivers. Kill one today
+    message: It is not uncommon for the cost of an abstraction to outweigh the benefit it delivers. (Eliminate) one today!
     tags: { *engineering }
 
   - author: TJ Holowaychuck
@@ -87,7 +92,7 @@ quotes:
 
   - author: Seneca
     message: It is the power of the mind to be unconquerable.
-    tags: { *proverb }
+    tags: { *emotion }
 
   - author: Anonymous
     message: When you feel like quitting, remember why you started.
@@ -103,7 +108,7 @@ quotes:
 
   - author: Paul Graham
     message: For the most ambitious young people, the corporate ladder is obsolete.
-    tags: { *entrepreneur }
+    tags: { *entrepreneur, *emotion }
 
   - author: Robert Herjavec
     message: A goal without a timeline is just a dream.
@@ -125,8 +130,8 @@ quotes:
     message: Find cheap ways to find new ideas. Constantly do that. If you're not experimenting, you'll atrophy.
     tags: { *entrepreneur }
 
-  - author: Lauren Gilchrist
-    message: Whatever is keeping you up at night, you can probably figure out by putting something in front of users
+  - author: Jason Fried
+    message: The market speaks the truth.  Launch and Learn.
     tags: { *decisions }
 
   - author: Laura Klein
@@ -135,7 +140,7 @@ quotes:
 
   - author: Robert Heinlein
     message: When one teaches, two learn.
-    tags: { *engineering }
+    tags: { *teaching }
 
   - author: Wayne Gretzky
     message: You miss 100% of the shots you don't take.
@@ -164,6 +169,10 @@ quotes:
   - author: Will Smith
     message: Smiling is the best way to face every problem, to crush every fear, and hide every pain.
     tags: { *emotion, *health }
+
+  - Author: Peter Drucker
+    message: There's nothing so useless as doing efficiently, that which should not be done at all!"
+    tags: { *decisions }
 default:
   author: Euripides
   message: Silence is true wisdom's best reply

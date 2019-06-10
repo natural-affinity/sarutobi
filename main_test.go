@@ -56,6 +56,10 @@ func TestTags(t *testing.T) {
 		astrings := strings.Split(string(aout), "\n")
 		sort.Strings(astrings)
 
+		if (len(astrings) != len(estrings)) {
+			t.Errorf("Test: %s\n Expected: %s\n Actual: %s\n", tc.Name, estrings, astrings)
+		}
+
 		for i, v := range estrings {
 			if astrings[i] != v {
 				t.Errorf("Test: %s\n Expected: %s\n Actual: %s\n", tc.Name, v, astrings[i])
