@@ -58,9 +58,8 @@ func TestPrintQuote(t *testing.T) {
 
 		if *update {
 			ioutil.WriteFile(golden, abyte, 0644)
+			expected, _ = ioutil.ReadFile(golden)
 		}
-
-		expected, _ = ioutil.ReadFile(golden)
 
 		if !bytes.Equal(expected, abyte) {
 			t.Errorf("Test: %s\n Expected: %s\n Actual: %s\n", tc.Name, expected, abyte)
