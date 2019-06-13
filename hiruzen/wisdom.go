@@ -1,7 +1,10 @@
 package hiruzen
 
 import (
+	"fmt"
+
 	"github.com/fatih/color"
+	"github.com/mattn/go-colorable"
 )
 
 // Tags for filtering
@@ -45,8 +48,9 @@ func (q *Quote) Tagged(tags ...string) bool {
 
 // Print wisdom
 func (q *Quote) Print() {
-	color.HiYellow("\n%s\n", q.Message)
-	color.HiRed(" \u2014 %s\n\n", q.Author)
+	cout := colorable.NewColorableStdout()
+	fmt.Fprintf(cout, "\n%s\n", color.HiYellowString(q.Message))
+	fmt.Fprintf(cout, " \u2014 %s\n\n", color.HiRedString(q.Author))
 }
 
 // Print tags

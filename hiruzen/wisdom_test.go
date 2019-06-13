@@ -1,12 +1,18 @@
 package hiruzen_test
 
 import (
+	"bytes"
+	"flag"
+	"io/ioutil"
 	"testing"
 
+	"github.com/natural-affinity/gotanda"
 	"github.com/natural-affinity/sarutobi/hiruzen"
 )
 
-func TestTagged(t *testing.T) {
+var update = flag.Bool("update", false, "update .golden files")
+
+func TestTaggedQuoted(t *testing.T) {
 	cases := []struct {
 		Name       string
 		Tags       hiruzen.Tags
@@ -32,5 +38,32 @@ func TestTagged(t *testing.T) {
 			t.Errorf("Test: %s\n Expected: %t\n Actual: %t\n", tc.Name, tc.Expected, actual)
 		}
 	}
+}
 
+func TestPrintQuote(t *testing.T) {
+	cases := []struct {
+		Name  string
+		Quote *hiruzen.Quote
+	}{
+		{"print.empty.quote", &hiruzen.Quote{}},
+		{"print.author.quote", &hiruzen.Quote{Author: "Toyo"}},
+		{"print.quote", &hiruzen.Quote{Message: "Hello World", Author: "Brian K."}},
+	}
+
+	for _, tc := range cases {
+		golden, expected := gotanda.LoadTestFile(t, "../testdata", tc.Name+".golden")
+		abyte, _ := gotanda.Capture(func() {
+			tc.Quote.Print()
+		})
+
+		if *update {
+			ioutil.WriteFile(golden, abyte, 0644)
+		}
+
+		expected, _ = ioutil.ReadFile(golden)
+
+		if !bytes.Equal(expected, abyte) {
+			t.Errorf("Test: %s\n Expected: %s\n Actual: %s\n", tc.Name, expected, abyte)
+		}
+	}
 }
