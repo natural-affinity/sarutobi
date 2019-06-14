@@ -50,7 +50,7 @@ func (q *Quote) Tagged(tags ...string) bool {
 func (q *Quote) Print() {
 	cout := colorable.NewColorableStdout()
 	fmt.Fprintf(cout, "\n%s\n", color.HiYellowString(q.Message))
-	fmt.Fprintf(cout, " \u2014 %s\n\n", color.HiRedString(q.Author))
+	fmt.Fprintf(cout, " %s %s\n\n", color.HiRedString("\u2014"), color.HiRedString(q.Author))
 }
 
 // Print tags
