@@ -48,14 +48,15 @@ func (q *Quote) Tagged(tags ...string) bool {
 
 // Print wisdom
 func (q *Quote) Print() {
-	cout := colorable.NewColorableStdout()
-	fmt.Fprintf(cout, "\n%s\n", color.HiYellowString(q.Message))
-	fmt.Fprintf(cout, " %s %s\n\n", color.HiRedString("\u2014"), color.HiRedString(q.Author))
+	w := colorable.NewColorableStdout()
+	fmt.Fprintf(w, "\n%s\n", color.HiYellowString(q.Message))
+	fmt.Fprintf(w, " %s %s\n\n", color.HiRedString("\u2014"), color.HiRedString(q.Author))
 }
 
 // Print tags
 func (t Tags) Print() {
+	w := colorable.NewColorableStdout()
 	for k := range t {
-		color.HiGreen(k)
+		fmt.Fprintf(w, "%s\n", color.HiGreenString(k))
 	}
 }

@@ -46,17 +46,17 @@ func TestTags(t *testing.T) {
 
 		if *update {
 			ioutil.WriteFile(golden, aout, 0644)
+			expected, _ = ioutil.ReadFile(golden)
 		}
 
 		// compare lists of strings (due to random map order)
-		expected, _ = ioutil.ReadFile(golden)
 		estrings := strings.Split(string(expected), "\n")
 		sort.Strings(estrings)
 
 		astrings := strings.Split(string(aout), "\n")
 		sort.Strings(astrings)
 
-		if (len(astrings) != len(estrings)) {
+		if len(astrings) != len(estrings) {
 			t.Errorf("Test: %s\n Expected: %s\n Actual: %s\n", tc.Name, estrings, astrings)
 		}
 
