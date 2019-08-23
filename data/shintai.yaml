@@ -22,6 +22,10 @@ quotes:
     message: Better to be the head of a chicken than the tail of a bull
     tags: { *proverb, *entrepreneur, *decisions }
 
+  - author: Toyo Miyakojima
+    message: Create your own current.
+    tags: { *proverb, *entrepreneur, *decisions, *emotion }
+
   - author: Neale Donald Walsch
     message: Life begins at the Edge of your Comfort Zone
     tags: { *courage }
@@ -106,13 +110,9 @@ quotes:
     message: Emotion leads to action.
     tags: { *emotion }
 
-  - author: Paul Graham
-    message: For the most ambitious young people, the corporate ladder is obsolete.
-    tags: { *entrepreneur, *emotion }
-
   - author: Robert Herjavec
     message: A goal without a timeline is just a dream.
-    tags: { *proverb, *entrepreneur }
+    tags: { *entrepreneur }
 
   - author: Daymond John
     message: An idea is not good enough. You have to find out how to execute that idea.
@@ -170,9 +170,13 @@ quotes:
     message: Smiling is the best way to face every problem, to crush every fear, and hide every pain.
     tags: { *emotion, *health }
 
-  - Author: Peter Drucker
-    message: There's nothing so useless as doing efficiently, that which should not be done at all!"
+  - author: Peter Drucker
+    message: There's nothing so useless as doing efficiently, that which should not be done at all!
     tags: { *decisions }
+
+  - author: Muhammad Ali
+    message: It isn't the mountains ahead to climb that wear you out; it's the pebble in your shoe.
+    tags: { *proverb }
 default:
   author: Euripides
   message: Silence is true wisdom's best reply
