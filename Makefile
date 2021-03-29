@@ -1,4 +1,4 @@
-include github.com/natural-affinity/makefiles/golang.bin.mk
+include makefiles/golang.bin.mk
 
 DBDIR := data
 DBBIN := bindata.go
@@ -8,7 +8,7 @@ SRC := $(SRC) $(wildcard $(DBDIR)/*.*)
 # build when changed including embedding static content
 $(BIN): $(SRC) $(PACKR)
 	go-bindata -ignore=.go -o $(DBBIN) $(DBDIR)
-	go build -o $(BIN)
+	go build -o $(BIN) -ldflags '-s -w'
 
 # fetch static embed tool
 $(PACKR):
