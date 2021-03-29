@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"flag"
 	"io/ioutil"
+	"path/filepath"
 	"testing"
 
 	"github.com/natural-affinity/gotanda"
@@ -51,16 +52,16 @@ func TestPrintQuote(t *testing.T) {
 	}
 
 	for _, tc := range cases {
-		golden, expected := gotanda.LoadTestFile(t, "../testdata", tc.Name+".golden")
+		golden := filepath.Join("../testdata", tc.Name+".golden")
 		abyte, _ := gotanda.Capture(func() {
 			tc.Quote.Print()
 		})
 
 		if *update {
 			ioutil.WriteFile(golden, abyte, 0644)
-			expected, _ = ioutil.ReadFile(golden)
 		}
 
+		expected, _ := ioutil.ReadFile(golden)
 		if !bytes.Equal(expected, abyte) {
 			t.Errorf("Test: %s\n Expected: %s\n Actual: %s\n", tc.Name, expected, abyte)
 		}
@@ -79,16 +80,16 @@ func TestPrintTags(t *testing.T) {
 	}
 
 	for _, tc := range cases {
-		golden, expected := gotanda.LoadTestFile(t, "../testdata", tc.Name+".golden")
+		golden := filepath.Join("../testdata", tc.Name+".golden")
 		abyte, _ := gotanda.Capture(func() {
 			tc.Tags.Print()
 		})
 
 		if *update {
 			ioutil.WriteFile(golden, abyte, 0644)
-			expected, _ = ioutil.ReadFile(golden)
 		}
 
+		expected, _ := ioutil.ReadFile(golden)
 		if !bytes.Equal(expected, abyte) {
 			t.Errorf("Test: %s\n Expected: %s\n Actual: %s\n", tc.Name, expected, abyte)
 		}
