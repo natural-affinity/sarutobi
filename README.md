@@ -33,7 +33,7 @@ sarutobi proverb
 sarutobi emotion decisions
 ```
 
-Create an `alias` for your favorite tags:
+Create an `alias` for your favorite quote with tags:
 ```bash
 # define in .bash_profile or .bashrc
 alias inspire="sarutobi proverb"
